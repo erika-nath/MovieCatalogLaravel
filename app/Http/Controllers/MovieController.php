@@ -34,4 +34,21 @@ class MovieController extends Controller
         ],201);
     }
 
+    public function update(Request $request, $id)
+    {
+        $movie = Movie::find($id);
+
+        if (!$movie) {
+            return response()->json(['message' => 'Pelicula no encontrada'], 404);
+        }
+
+        $movie->update($request->all());
+
+        return response()->json([
+            'message' => 'Pelicula actualizada correctamente',
+            'data' => $movie
+        ],200);
+
+        }
+
 }
