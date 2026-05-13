@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Movie;
+use Illuminate\Http\Request;
+
 
 class MovieController extends Controller
 {
@@ -12,4 +13,25 @@ class MovieController extends Controller
         $movies = Movie ::all();
         return response()->json($movies);
     }
+
+    public function showById($id)
+    {
+        $movies = Movie::find($id);
+
+        if (!$movies) {
+            return response()->json(['message' => 'Movie not found'], 404);
+        }
+        return response()->json($movies);
+    }
+
+    public function strore(Request $request)
+    {
+        $newMovie = Movie::create($request->all());
+        return response()->json([
+'message' => 'Movie created successfully',
+'data' => $newMovie
+
+        ],201);
+    }
+
 }
