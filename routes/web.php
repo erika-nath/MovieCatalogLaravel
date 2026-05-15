@@ -7,3 +7,4 @@ Route::get('/allmovies', [MovieController::class, 'showMovies'])->name('Allmovie
 Route::post('/newmovie', [MovieController::class, 'strore'])->name('movieStore');
 Route::get('/movie/{id}', [MovieController::class, 'showById'])->name('movieById');
 Route::put('/movie/{id}', [MovieController::class, 'update']);
+Route::delete('/movie/{id}', [MovieController::class, 'destroy']);
