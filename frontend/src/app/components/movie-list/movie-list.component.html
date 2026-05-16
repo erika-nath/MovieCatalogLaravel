@@ -1,0 +1,14 @@
+<div style="padding: 20px; font-family: Arial, sans-serif;">
+  <h2>Catálogo de Películas </h2>
+
+
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px;">
+      <div style="border: 1px solid #ccc; padding: 15px; border-radius: 8px; background-color: #f9f9f9;">
+        <h3 style="margin-top: 0;">{{ movie.title }}</h3>
+        <p><strong>Género:</strong> {{ movie.synopsis }}</p>
+        <p><strong>Año:</strong> {{ movie.year }}</p>
+      </div>
+
+  </div>
+</div>
