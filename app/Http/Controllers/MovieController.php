@@ -28,8 +28,8 @@ class MovieController extends Controller
     {
         $newMovie = Movie::create($request->all());
         return response()->json([
-'message' => 'Movie created successfully',
-'data' => $newMovie
+        'message' => 'Movie created successfully',
+        'data' => $newMovie
 
         ],201);
     }
@@ -51,4 +51,14 @@ class MovieController extends Controller
 
         }
 
+        public function destroy($id) {
+        $movie = Movie::find($id);
+        if (!$movie) {
+            return response()->json(['message' => 'Pelicula no encontrada'], 404);
+        }
+        $movie->delete();
+        return response()->json(
+            ['message' => 'Pelicula eliminada correctamente'], 200);
+
+        }
 }
